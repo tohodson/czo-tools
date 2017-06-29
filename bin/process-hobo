@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+import argparse, sys
+import hobo
+
+def main():
+
+    # parse input parameters    
+    parser = argparse.ArgumentParser(description= "Process HOBO files.")
+    parser.add_argument('in_dir', type=str, help='the directory containing new HOBO csv to be processed')
+    parser.add_argument('out_dir', type=str, help='the directory where the original HOBO csv will be archived after it is processed')
+
+    if len(sys.argv) <= 1:
+        parser.print_help()
+        sys.exit(1)
+    else:
+        args = parser.parse_args()
+
+
+if __name__ == "__main__":
+    main()
+
+
