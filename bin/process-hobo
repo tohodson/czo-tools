@@ -1,21 +1,39 @@
 #!/usr/bin/env python3
 
-import argparse, sys
+import argparse, sys, os, glob
 import hobo
 
-def main():
 
+def process_atm( atm_files ):
+    print(atm_files)
+    for f in atm_files:
+        print(f)
+        #try
+        #os.rename("path/to/current/file.foo", "path/to/new/desination/for/file.foo")
+
+def process_h2o( h2o_files ):
+    pass
+
+def main():
     # parse input parameters    
     parser = argparse.ArgumentParser(description= "Process HOBO files.")
     parser.add_argument('in_dir', type=str, help='the directory containing new HOBO csv to be processed')
     parser.add_argument('out_dir', type=str, help='the directory where the original HOBO csv will be archived after it is processed')
 
+    # if no arguments provided, print usage and exit
     if len(sys.argv) <= 1:
         parser.print_help()
         sys.exit(1)
     else:
         args = parser.parse_args()
+        in_dir = args.in_dir
+        out_dir = args.in_dir
 
+    # process all atm files
+    atm_files = glob.glob(in_dir + os.sep + "*atm.csv")
+    h2o_files = glob.glob(in_dir + os.sep + "*h2o.csv")
+    process_atm( atm_files)
+    process_h2o( h2o_files )
 
 if __name__ == "__main__":
     main()
