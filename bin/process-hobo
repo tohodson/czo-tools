@@ -4,21 +4,12 @@ import argparse, sys, os, glob
 import hobo
 
 
-def process_atm( atm_files ):
-    print(atm_files)
-    for f in atm_files:
-        print(f)
-        #try
-        #os.rename("path/to/current/file.foo", "path/to/new/desination/for/file.foo")
-
-def process_h2o( h2o_files ):
-    pass
-
 def main():
     # parse input parameters    
     parser = argparse.ArgumentParser(description= "Process HOBO files.")
     parser.add_argument('in_dir', type=str, help='the directory containing new HOBO csv to be processed')
     parser.add_argument('out_dir', type=str, help='the directory where the original HOBO csv will be archived after it is processed')
+    parser.add_argument('-a','--atm', type=str, help='pickle containing atm pressure data')
 
     # if no arguments provided, print usage and exit
     if len(sys.argv) <= 1:
@@ -27,13 +18,12 @@ def main():
     else:
         args = parser.parse_args()
         in_dir = args.in_dir
-        out_dir = args.in_dir
+        out_dir = args.out_dir
+        atm_log = args.atm
 
     # process all atm files
-    atm_files = glob.glob(in_dir + os.sep + "*atm.csv")
-    h2o_files = glob.glob(in_dir + os.sep + "*h2o.csv")
-    process_atm( atm_files)
-    process_h2o( h2o_files )
+    hobo.process_atm( in_dir, out_dir, atm_log)
+    hobo.process_h2o( in_dir, out_dir, atm_log )
 
 if __name__ == "__main__":
     main()

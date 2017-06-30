@@ -1,9 +1,11 @@
 from setuptools import setup, find_packages
 
 setup(name='hobo',
-      version='0.1',
+      version='0.0.1',
       description='Process data from HOBO pressure loggers',
-      url='NA',
+      url='https://github.com/tohodson/hobo',
+      download_url =
+      'https://github.com/tohodson/hobo/archive/0.0.1.tar.gz',
       author='Tim Hodson',
       author_email='tohodson.gmail.com',
       license='GPL',

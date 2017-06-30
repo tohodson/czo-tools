@@ -21,8 +21,7 @@ $RECYCLE.BIN/
 # Operating System Files
 # =========================
 
-# OSX
-# =========================
+# OSX # =========================
 
 .DS_Store
 .AppleDouble
@@ -49,3 +48,4 @@ Temporary Items
 # Python files 
 hobo.egg-info
 *.pyc
+hobo/__pycache__
