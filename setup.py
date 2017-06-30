@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-setup(name='hobo',
+setup(name='hobo-h2o',
       version='0.0.1',
       description='Process data from HOBO pressure loggers',
       url='https://github.com/tohodson/hobo',
@@ -9,7 +9,7 @@ setup(name='hobo',
       author='Tim Hodson',
       author_email='tohodson.gmail.com',
       license='GPL',
-      packages=['hobo'],
+      packages=['hobo-h2o'],
       install_requires=[
                     'pandas',
                 ],
