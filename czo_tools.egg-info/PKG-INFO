@@ -2,7 +2,7 @@ Metadata-Version: 1.2
 Name: czo-tools
 Version: 0.0.1
 Summary: Process data from HOBO pressure loggers
-Home-page: https://github.com/tohodson/hobo
+Home-page: https://github.com/tohodson/czo-tools
 Author: Tim Hodson
 Author-email: tohodson.gmail.com
 License: GPL

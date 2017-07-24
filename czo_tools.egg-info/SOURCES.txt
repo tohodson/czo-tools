@@ -1,5 +1,6 @@
 README.txt
 setup.py
+bin/calc-discharge
 bin/process-hobo
 czo_tools.egg-info/PKG-INFO
 czo_tools.egg-info/SOURCES.txt
@@ -7,6 +8,8 @@ czo_tools.egg-info/dependency_links.txt
 czo_tools.egg-info/not-zip-safe
 czo_tools.egg-info/requires.txt
 czo_tools.egg-info/top_level.txt
+discharge/__init__.py
+discharge/rating.py
 hobo/__init__.py
 hobo/clean.py
 hobo/clean2.py

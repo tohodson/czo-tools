@@ -28,9 +28,17 @@ For efficiceny the first three terms are combined into a single coeffecient:
                   K_148 = Cd * sqrt(g) * tan(theta/2)
 
 """
-K_148 = (8*sqrt(2))/15 * sqrt(g) * tan( radians(45/2 )
+K_148 = (8*sqrt(2))/15 * sqrt(g) * tan( radians(45/2) )
 
-def get_rating( station ):
+def rating_148(depth):
+    bhead = 260 #mm
+    h = (depth - bhead)/1000
+    h[ h < 0 ] = 0
+
+    Q = K_148 * h**(5/2)
+    return Q
+
+def get_rating(station):
     """This function returns the rating curve of station
 
     Args:
@@ -38,7 +46,7 @@ def get_rating( station ):
     """
 
     rating = {
-    '148': lambda x_1, x_2: K_148 * (x_1 - x_2)**(5/2), #x_1 is upstream depth and x_2 is downstream
+    '148': rating_148 
     }[station]
 
     return rating

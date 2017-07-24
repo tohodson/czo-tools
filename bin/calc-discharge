@@ -3,11 +3,16 @@
 import argparse, sys, os, glob
 import discharge
 
+DESCRIPTION="""Calculate discharge from stage data."""
 
+USAGE="""Example of use:
+calc-discharge input output -s station
+"""
 def main():
     # parse input parameters    
-    parser = argparse.ArgumentParser(description= "Calculate discharge from stage data.")
-    parser.add_argument('i', type=str, help='input csv file containing stage data'
+    parser = argparse.ArgumentParser(description=DESCRIPTION,
+                                    epilog=USAGE)
+    parser.add_argument('i', type=str, help='input csv file containing stage data')
     parser.add_argument('o', type=str, help='output csv file containing discharge data')
     parser.add_argument('-s','--station', type=str, help='station ID')
 
