@@ -14,5 +14,5 @@ setup(name='czo-tools',
                     'pandas',
                 ],
       python_requires='>=3',
-      scripts=['bin/process-hobo'],
+      scripts=['bin/process-hobo, bin/process-stage'],
       zip_safe=False)

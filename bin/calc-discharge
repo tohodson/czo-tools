@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+
+import argparse, sys, os, glob
+import discharge
+
+
+def main():
+    # parse input parameters    
+    parser = argparse.ArgumentParser(description= "Calculate discharge from stage data.")
+    parser.add_argument('i', type=str, help='input csv file containing stage data'
+    parser.add_argument('o', type=str, help='output csv file containing discharge data')
+    parser.add_argument('-s','--station', type=str, help='station ID')
+
+    # if no arguments provided, print usage and exit
+    if len(sys.argv) <= 1:
+        parser.print_help()
+        sys.exit(1)
+    else:
+        args = parser.parse_args()
+        in_file  = args.i
+        out_file = args.o
+        station = args.station
+
+    # process files
+    discharge.process_stage( in_file, out_file, station )
+
+if __name__ == "__main__":
+    main()
+
+
