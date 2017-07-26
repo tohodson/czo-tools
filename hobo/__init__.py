@@ -1,6 +1,36 @@
 # -*- coding: utf-8 -*-
 """This is a module to process HOBO pressure logs 
-This module does stuff.
+
+Background
+==========
+HOBO Water Level Loggers measure absolute pressure, which includes both the
+weight of the water above the sensor and the atmospheric pressure acting on the
+water surface. To convert absolute pressure to water pressure, the atmospheric
+component is substracted using measurements of atmospheric pressure at a nearby
+station.
+
+For IML-CZO, the atmospheric stations are HOBO loggers placed a few meters
+above the local water table.
+
+After removing atmospheric pressure, water pressure is converted to depth by:
+
+                     h = P/ (rho * g)
+
+where h is depth, P is corrected water pressure, g is the acceleration due to gravity, and rho is the density of water 
+approximated by:
+
+                     rho = 1 g/cm^3
+                     #TODO INCORPORATE A TEMPERATURE BASED FORMULA
+
+where T_w is the water temperature in C.
+
+Finally water depth is converted to stage by:
+
+                     stage (m) = 100 - offset + depth 
+
+where offsets are listed in the table above.
+
+
 """
 
 __version__ = '0.0.1'
@@ -15,7 +45,7 @@ DF_COLS  = ['pressure','temp']
 H2O_COLS = ['stage']
 
 def process_atm( in_dir, out_dir, atm_log ):
-    """This is a function
+    """Process atmospheric pressure logs
 
 	Args:
 		in_dir (str): Directory containing new HOBO csv logs.

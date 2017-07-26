@@ -46,8 +46,8 @@ Temporary Items
 .apdisk
 
 # Python files 
-*.pyc
-czo_tools.egg-info
-hobo/__pycache__
+**.pyc
+**/*.egg-info
+**/__pycache__
 
 dist
